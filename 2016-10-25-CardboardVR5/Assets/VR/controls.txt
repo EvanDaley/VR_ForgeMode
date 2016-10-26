@@ -1,0 +1,12 @@
+bumpers for snapping camera left and right
+
+
+
+
+functionality:
+rotation mode
+transformation mode 
+scale mode
+
+
+This is not essential. I can change controls later. For now I just need to build the bare essentials of creating objects and giving them a parent-child relationship with the advanced cursor. 
