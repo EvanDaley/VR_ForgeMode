@@ -12,8 +12,8 @@ public class LookTarget : MonoBehaviour, IGvrGazeResponder {
 	private float stareTriggerCooldown = 0;
 	private bool lookedAt = false;
 
-	public float starTriggerInitialTime = .3f;
-	public float starTriggerContinueTime = .3f;
+	public float stareTriggerInitialTime = .3f;
+	public float stareTriggerContinueTime = .3f;
 
 	void Start() {
 		//startingPosition = transform.localPosition;
@@ -29,7 +29,7 @@ public class LookTarget : MonoBehaviour, IGvrGazeResponder {
 		if (lookedAt && Time.time > stareTriggerCooldown)
 		{
 			FireEvent ();
-			stareTriggerCooldown = Time.time + MenuSettings.Instance.stareTriggerExtraTime + starTriggerContinueTime;
+			stareTriggerCooldown = Time.time + MenuSettings.Instance.stareTriggerExtraTime + stareTriggerContinueTime;
 		}
 	}
 
@@ -43,7 +43,7 @@ public class LookTarget : MonoBehaviour, IGvrGazeResponder {
 		lookedAt = gazedAt;
 
 		if (gazedAt)
-			stareTriggerCooldown = Time.time + MenuSettings.Instance.stareTriggerExtraTime + starTriggerInitialTime;
+			stareTriggerCooldown = Time.time + MenuSettings.Instance.stareTriggerExtraTime + stareTriggerInitialTime;
 	}
 		
 

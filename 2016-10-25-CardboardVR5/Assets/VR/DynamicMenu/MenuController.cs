@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MenuController : MonoBehaviour {
 
-	public PhysicsPlayer physicsPlayer;
+	public RemotePlayer player;
 	public GameObject cursor3d;
 	public GameObject menu;
 
@@ -41,7 +41,7 @@ public class MenuController : MonoBehaviour {
 
 	void CenterMenu()
 	{
-		menu.transform.position = physicsPlayer.transform.position;
+		menu.transform.position = player.transform.position;
 
 		Vector3 forward = new Vector3 (Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
 		menu.transform.forward = forward;
@@ -65,7 +65,7 @@ public class MenuController : MonoBehaviour {
 		if (moveOption == MoveMenuOption.forward)
 		{
 			print ("forward");
-			physicsPlayer.SetMove (Camera.main.transform.forward);
+			player.Move (Camera.main.transform.forward);
 			//physicsPlayer.SetMove (physicsPlayer.transform.forward);
 		}
 
@@ -73,7 +73,7 @@ public class MenuController : MonoBehaviour {
 		{
 			print ("back");
 			//physicsPlayer.SetMove (-physicsPlayer.transform.forward);
-			physicsPlayer.SetMove (-Camera.main.transform.forward);
+			player.Move (-Camera.main.transform.forward);
 
 		}
 
@@ -82,7 +82,7 @@ public class MenuController : MonoBehaviour {
 			//physicsPlayer.SetMove (-physicsPlayer.transform.right);
 			print ("left");
 //			physicsPlayer.SetMove (-Camera.main.transform.right);
-			physicsPlayer.Rotate (-Vector3.up);
+			player.Rotate (-Vector3.up);
 		}
 
 		else if (moveOption == MoveMenuOption.right)
@@ -90,7 +90,7 @@ public class MenuController : MonoBehaviour {
 			print ("right");
 			//physicsPlayer.SetMove (physicsPlayer.transform.right);
 			//physicsPlayer.SetMove (Camera.main.transform.right);
-			physicsPlayer.Rotate (Vector3.up);
+			player.Rotate (Vector3.up);
 
 		}
 	}
@@ -150,6 +150,21 @@ public class MenuController : MonoBehaviour {
 			cursor3d.transform.rotation = Camera.main.transform.rotation;
 			cursor3d.transform.localScale = Vector3.one;
 
+		}
+	}
+
+	public void PerformCreateMenuAction(CreateMenuOption createMenuOption)
+	{
+		print ("here");
+		if (createMenuOption == CreateMenuOption.next)
+		{
+			print ("select right");
+		}
+
+		if (createMenuOption == CreateMenuOption.prev)
+		{
+
+			print ("select left");
 		}
 	}
 }
